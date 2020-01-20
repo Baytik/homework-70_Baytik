@@ -15,3 +15,10 @@ input {
     border: 2px solid black;
     font-weight: bold;
 }
+.blocks {
+    display: flex;
+    flex-wrap: wrap;
+}
+.block {
+    margin: 0 30px;
+}
