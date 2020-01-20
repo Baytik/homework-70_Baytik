@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
+import Header from "./Components/Header/Header";
+import axiosAPI from "./axiosAPI";
 
-function App() {
+const App = () => {
+
+    const initialShows = [];
+    const initialText = '';
+    const [shows, setShows] = useState(initialShows);
+    const [text, setText] = useState(initialText);
+    console.log(shows);
+
+    const fetchData = async () => {
+      const response = await axiosAPI.get();
+      setShows(response.data);
+    };
+    useEffect( () => {
+        fetchData();
+    }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+      <div className="App">
+          <Header/>
+          <div className="Content">
+              <div>
+                  <p className="main-title">Search for TV Show</p>
+              </div>
+              <div>
+                  <input type="text"/>
+              </div>
+          </div>
+      </div>
+  )
+};
 
 export default App;

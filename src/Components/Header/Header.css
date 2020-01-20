@@ -1,0 +1,10 @@
+.logo {
+    background: orange;
+    padding-left: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.logo h2 {
+    color: #fff;
+    margin: 0;
+}
